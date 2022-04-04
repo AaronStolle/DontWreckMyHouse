@@ -5,6 +5,16 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse", "DontWreckMyHouse\DontWreckMyHouse.csproj", "{AAAB8517-53B1-4463-B473-CCFC1C765886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse.BLL", "DontWreckMyHouse.BLL\DontWreckMyHouse.BLL.csproj", "{1DCAF67B-9651-43DC-BA04-8FE558E98882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse.Core", "DontWreckMyHouse.Core\DontWreckMyHouse.Core.csproj", "{E25A70F6-E49F-4A99-9F29-C0ACE6BD769F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse.DAL", "DontWreckMyHouse.DAL\DontWreckMyHouse.DAL.csproj", "{7B08521B-FD70-412F-88FC-10218EFA79AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse.BLL.Tests", "DontWreckMyHouse.BLL.Tests\DontWreckMyHouse.BLL.Tests.csproj", "{72D7F15A-FD1C-4F68-ABE0-9B810D6BC74F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DontWreckMyHouse.DAL.Tests", "DontWreckMyHouse.DAL.Tests\DontWreckMyHouse.DAL.Tests.csproj", "{D6F8797B-6447-4F8F-90F7-88FA603F73CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{AAAB8517-53B1-4463-B473-CCFC1C765886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAAB8517-53B1-4463-B473-CCFC1C765886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAAB8517-53B1-4463-B473-CCFC1C765886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCAF67B-9651-43DC-BA04-8FE558E98882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCAF67B-9651-43DC-BA04-8FE558E98882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCAF67B-9651-43DC-BA04-8FE558E98882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCAF67B-9651-43DC-BA04-8FE558E98882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25A70F6-E49F-4A99-9F29-C0ACE6BD769F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25A70F6-E49F-4A99-9F29-C0ACE6BD769F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25A70F6-E49F-4A99-9F29-C0ACE6BD769F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25A70F6-E49F-4A99-9F29-C0ACE6BD769F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B08521B-FD70-412F-88FC-10218EFA79AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B08521B-FD70-412F-88FC-10218EFA79AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B08521B-FD70-412F-88FC-10218EFA79AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B08521B-FD70-412F-88FC-10218EFA79AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D7F15A-FD1C-4F68-ABE0-9B810D6BC74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D7F15A-FD1C-4F68-ABE0-9B810D6BC74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D7F15A-FD1C-4F68-ABE0-9B810D6BC74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D7F15A-FD1C-4F68-ABE0-9B810D6BC74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F8797B-6447-4F8F-90F7-88FA603F73CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F8797B-6447-4F8F-90F7-88FA603F73CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F8797B-6447-4F8F-90F7-88FA603F73CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F8797B-6447-4F8F-90F7-88FA603F73CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
