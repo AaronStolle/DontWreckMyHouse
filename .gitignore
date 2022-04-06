@@ -452,3 +452,8 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+data/
+data_seed/
+DontWreckMyHouse.DAL/data/
+DontWreckMyHouse.DAL.Tests/data_seed/
