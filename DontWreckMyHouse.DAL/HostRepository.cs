@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DontWreckMyHouse.Core.Interfaces;
+using DontWreckMyHouse.Core.Models;
 
 namespace DontWreckMyHouse.DAL
 {
-    internal class HostRepository
+    public class HostRepository : IHost
     {
+        public Host FindByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

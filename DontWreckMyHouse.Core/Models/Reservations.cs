@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DontWreckMyHouse.Core.Models
 {
-    public class Reservations
+    public class Reservation
     {
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
