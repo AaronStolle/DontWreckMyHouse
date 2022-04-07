@@ -1,3 +1,12 @@
-﻿using System.IO;
+﻿using System;
 
-Console.WriteLine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName);
+namespace DontWreckMyHouse
+{
+    public class program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World");
+        }
+    }
+}

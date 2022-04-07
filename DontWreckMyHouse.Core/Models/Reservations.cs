@@ -13,8 +13,8 @@ namespace DontWreckMyHouse.Core.Models
         public DateTime EndDate { get; set; }
         public Guest Guest { get; set; }
         public Host Host { get; set; }
-
-        public decimal Total
+        public decimal Total { get; set; }
+        public decimal Value
         {
             get
             {

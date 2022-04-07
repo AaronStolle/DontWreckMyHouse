@@ -8,7 +8,7 @@ namespace DontWreckMyHouse.DAL
 {
     public class HostRepository : IHost
     {
-        public Host FindByEmail(string email)
+        public Result<Host> FindByEmail(string email)
         {
             throw new NotImplementedException();
         }

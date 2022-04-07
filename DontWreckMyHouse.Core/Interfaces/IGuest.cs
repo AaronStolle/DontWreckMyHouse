@@ -8,7 +8,7 @@ namespace DontWreckMyHouse.Core.Interfaces
 {
     public interface IGuest
     {
-        Guest FindByEmail(string email);
+        Result<Guest> FindByEmail(string email);
         //Guest FindById(int id);
 
     }

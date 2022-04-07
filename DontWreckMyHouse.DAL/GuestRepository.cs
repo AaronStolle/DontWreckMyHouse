@@ -6,11 +6,48 @@ using System.Linq;
 
 namespace DontWreckMyHouse.DAL
 {
-    internal class GuestRepository : IGuest
+    public class GuestRepository : IGuest
     {
-        public Guest FindByEmail(string email)
+        public string DataFilePath { get; set; }
+        public ICustomeFormatter<Guest> Formatter { get; set; }
+
+        public GuestRepository(string dataFilePath, ICustomeFormatter<Guest> formatter)
         {
-            throw new NotImplementedException();
+            DataFilePath = dataFilePath;
+            Formatter = formatter;
+        }
+        public Result<Guest> FindByEmail(string email)
+        {
+            Result<Guest> result = new();
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(DataFilePath))
+                {
+                    string data = sr.ReadToEnd();
+                    data = sr.ReadLine();
+                    while(data != null)
+                    {
+                        Guest guest = Formatter.Deserialize(data);
+                        if(guest.Email == email)
+                        {
+                            result.Data = guest;
+                            result.Success = true;
+                            return result;
+                        }
+                        data = sr.ReadLine();
+                    }
+                }
+            }catch (Exception ex)
+            {
+                result.Success = false;
+                result.Message = ex.Message;
+                return result;
+            }
+
+            result.Success = false;
+            result.Message = "I couldn't find the email.";
+            return result;
         }
     }
 }
