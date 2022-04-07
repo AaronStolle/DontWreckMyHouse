@@ -47,7 +47,7 @@ namespace DontWreckMyHouse.DAL.Tests
 
             //Assert
             Assert.IsTrue(actual.Success);
-            Assert.AreEqual(expected,actual.Data);
+            Assert.AreEqual(expected.ToString(), actual.Data.ToString());
         }
     }
 }

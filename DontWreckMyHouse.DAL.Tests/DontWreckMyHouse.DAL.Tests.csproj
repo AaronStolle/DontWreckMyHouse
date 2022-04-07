@@ -19,4 +19,10 @@
     <ProjectReference Include="..\DontWreckMyHouse.DAL\DontWreckMyHouse.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\DALGuestTest.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

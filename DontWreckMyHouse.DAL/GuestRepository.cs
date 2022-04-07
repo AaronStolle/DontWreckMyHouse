@@ -24,7 +24,7 @@ namespace DontWreckMyHouse.DAL
             {
                 using (StreamReader sr = new StreamReader(DataFilePath))
                 {
-                    string data = sr.ReadToEnd();
+                    string data = sr.ReadLine();
                     data = sr.ReadLine();
                     while(data != null)
                     {
