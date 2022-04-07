@@ -7,7 +7,7 @@ namespace DontWreckMyHouse.Core.Interfaces
 {
     public interface IReservation
     {
-        Result<List<Reservation>> FindAll();
+        List<Reservation> FindAll(Guid hostId);
         Result<Reservation> FindById(int id);
         Result<Reservation> Add(Reservation reservation);
         Result<Reservation> Edit(Reservation reservation);
