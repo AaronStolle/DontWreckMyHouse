@@ -68,12 +68,8 @@ namespace DontWreckMyHouse.DAL
     }
     public class ReservationFormatter : ICustomeFormatter<Reservation>
     {        
+        // 
         public Reservation Deserialize(string data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Reservation Deserialize(string data, Host host)
         {
             string[] fields = data.Trim().Split(",");
             //id,start_date,end_date,guest_id,total
@@ -82,16 +78,15 @@ namespace DontWreckMyHouse.DAL
             result.StartDate = DateTime.Parse(fields[1]);
             result.EndDate = DateTime.Parse(fields[2]);
             result.Total = decimal.Parse(fields[4]);
-            Guest guest = new Guest();
-            guest.Id = int.Parse(fields[3]);
-            result.Guest = guest;
-            result.Host = host;
+            
+            result.GuestID = int.Parse(fields[3]);
+
             return result;
         }
 
         public string Seralize(Reservation data)
         {
-            return $"{data.Id},{data.StartDate},{data.EndDate},{data.Guest.Id},{data.Value}";
+            return $"{data.Id},{data.StartDate},{data.EndDate},{data.GuestID},{data.Value}";
         }
     }
 }

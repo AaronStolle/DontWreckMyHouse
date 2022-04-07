@@ -26,6 +26,9 @@
     <None Update="TestData\DALHostTest.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TestData\ReservationTest\293508da-e367-437a-9178-1ebaa7d83015.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

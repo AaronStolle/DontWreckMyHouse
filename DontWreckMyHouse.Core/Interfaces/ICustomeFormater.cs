@@ -12,7 +12,5 @@ namespace DontWreckMyHouse.Core.Interfaces
         public T Deserialize(string data);
 
         public string Seralize(T data);
-
-        public T Deserialize(string data, Host host);
     }
 }
