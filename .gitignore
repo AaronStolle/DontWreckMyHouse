@@ -457,3 +457,4 @@ data/
 data_seed/
 DontWreckMyHouse.DAL/data/
 DontWreckMyHouse.DAL.Tests/data_seed/
+DontWreckMyHouse.DAL.Tests/TestData/
