@@ -1,5 +1,6 @@
 ﻿using DontWreckMyHouse.Core.Models;
 using NUnit.Framework;
+using System;
 using System.IO;
 
 namespace DontWreckMyHouse.DAL.Tests
@@ -34,7 +35,7 @@ namespace DontWreckMyHouse.DAL.Tests
             //Arrange
             Host expected = new Host()
             {
-                Id = "3edda6bc-ab95-49a8-8962-d50b53f84b15",
+                Id = Guid.Parse("3edda6bc-ab95-49a8-8962-d50b53f84b15"),
                 LastName = "Yearnes",
                 Email = "eyearnes0@sfgate.com",
                 Phone = "(806) 1783815",

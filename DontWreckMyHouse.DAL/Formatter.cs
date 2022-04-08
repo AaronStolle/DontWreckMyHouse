@@ -43,7 +43,7 @@ namespace DontWreckMyHouse.DAL
             //id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate
             return new Host()
             {
-                Id = fields[0],
+                Id = Guid.Parse(fields[0]),
                 LastName = fields[1],
                 Email = fields[2],
                 Phone = fields[3],
@@ -78,15 +78,18 @@ namespace DontWreckMyHouse.DAL
             result.StartDate = DateTime.Parse(fields[1]);
             result.EndDate = DateTime.Parse(fields[2]);
             result.Total = decimal.Parse(fields[4]);
-            
-            result.GuestID = int.Parse(fields[3]);
+            Guest guest = new Guest();
+            result.guest = guest;
+            result.guest.Id = int.Parse(fields[3]);
+            Host host = new Host();
+            result.host = host;
 
             return result;
         }
 
         public string Seralize(Reservation data)
         {
-            return $"{data.Id},{data.StartDate},{data.EndDate},{data.GuestID},{data.Value}";
+            return $"{data.Id},{data.StartDate},{data.EndDate},{data.guest.Id},{data.Value}";
         }
     }
 }

@@ -10,11 +10,22 @@ namespace DontWreckMyHouse.BLL
 {
     public class GuestService
     {
-        private readonly IGuest guest;
+        private readonly IGuest repo;
 
         public GuestService(IGuest guest)
         {
-            this.guest = guest;
+            this.repo = guest;
+        }
+
+
+
+        public Result<Guest> FindByEmail(string email)
+        {
+            return repo.FindByEmail(email);
+        }
+        public Guest FindById(int id)
+        {
+            return repo.FindAll().Data.FirstOrDefault(g => g.Id == id);
         }
     }
 }

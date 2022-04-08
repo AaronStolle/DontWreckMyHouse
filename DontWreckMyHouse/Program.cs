@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 
 namespace DontWreckMyHouse
 {
@@ -6,7 +7,9 @@ namespace DontWreckMyHouse
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            NinjectContainer.Configure();
+            Controller controller = NinjectContainer.kernel.Get<Controller>();
+            controller.Run();
         }
     }
 }

@@ -11,15 +11,14 @@ namespace DontWreckMyHouse.Core.Models
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }        
-        public int GuestID { get; set; }
-        public decimal HostStandardRate { get; set; }
-        public decimal HostWeekendRate { get; set; }
+        public Guest guest { get; set; }
+        public Host host { get; set; }
         public decimal Total { get; set; }
         public decimal Value
         {
             get
             {
-                if(GuestID == -1)
+                if(guest.Id == -1)
                 {
                     return decimal.Zero;
                 }
@@ -29,11 +28,11 @@ namespace DontWreckMyHouse.Core.Models
                 {
                     if (day.DayOfWeek == DayOfWeek.Sunday || day.DayOfWeek == DayOfWeek.Saturday)
                     {
-                        weekendPrice += HostWeekendRate;
+                        weekendPrice += host.WeekendRate;
                     }
                     else
                     {
-                        weekdayPrice += HostStandardRate;
+                        weekdayPrice += host.StandardRate;
                     }                    
                 }
                 decimal cost = weekdayPrice + weekendPrice;

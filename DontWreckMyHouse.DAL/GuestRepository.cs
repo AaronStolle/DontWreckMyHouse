@@ -49,5 +49,44 @@ namespace DontWreckMyHouse.DAL
             result.Message = "I couldn't find the email.";
             return result;
         }
+
+        public Result<List<Guest>> FindAll()
+        {
+            Result<List<Guest>> result = new();
+            List<Guest> list = new List<Guest>();
+            try
+            {
+                using (StreamReader sr = new StreamReader(DataFilePath))
+                {
+                    string data = sr.ReadLine();
+                    data = sr.ReadLine();
+                    while (data != null)
+                    {
+                        Guest guest = Formatter.Deserialize(data);
+                        if (guest != null)
+                        {
+                            list.Add(guest);
+                            result.Success = true;
+                            
+                        }
+                        data = sr.ReadLine();
+                    }
+                }
+                result.Data = list;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.Message = ex.Message;
+                return result;
+            }
+
+            result.Success = false;
+            result.Message = "I couldn't find the email.";
+            return result;
+        }
+
+        
     }
 }

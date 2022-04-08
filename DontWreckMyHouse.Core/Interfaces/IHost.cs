@@ -10,7 +10,7 @@ namespace DontWreckMyHouse.Core.Interfaces
     public interface IHost
     {
         Result<Host> FindByEmail(string email);
-        //List<Host> FindAll();
-        //Host FindById(string id);
+        Result<List<Host>> FindAll();
+        
     }
 }

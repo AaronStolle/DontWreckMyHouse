@@ -43,6 +43,8 @@ namespace DontWreckMyHouse.DAL
             var path = GetFilePath(hostId2Find);
             if (!File.Exists(path))
             {
+                result.Success = false;
+                result.Message = "I couldn't find any reservations";
                 return result;
             }
             
@@ -61,6 +63,7 @@ namespace DontWreckMyHouse.DAL
                     Reservation reservation = Formatter.Deserialize(data);
                     if (reservation != null)
                     {
+                        reservation.host.Id = hostId2Find;
                         result.Data!.Add(reservation);
                         result.Success = true;
                     }
@@ -75,11 +78,7 @@ namespace DontWreckMyHouse.DAL
                 result.Success = false;
                 result.Message = ex.Message;
                 return result;
-            }
-
-            result.Success = false;
-            result.Message = "I couldn't find any reservations";
-            return result;
+            }           
         }
 
         private string GetFilePath(Guid hostId2Find)
