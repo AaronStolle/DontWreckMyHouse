@@ -132,6 +132,23 @@ namespace DontWreckMyHouse
                 PrintLine(INVALID_DATE);
             }
         }
+
+        internal DateTime ReadDateOrNull(string prompt)
+        {
+            DateTime result;
+            while (true)
+            {
+                string input = ReadString(prompt);
+                if (DateTime.TryParse(input, out result))
+                {
+                    return result.Date;
+                }
+                else
+                {
+                    return result = DateTime.MinValue;
+                }
+            }
+        }
     }
 
 }

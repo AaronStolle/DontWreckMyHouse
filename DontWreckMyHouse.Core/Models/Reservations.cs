@@ -14,14 +14,9 @@ namespace DontWreckMyHouse.Core.Models
         public Guest guest { get; set; }
         public Host host { get; set; }
         public decimal Total { get; set; }
-        public decimal Value
+        public decimal Value()
         {
-            get
-            {
-                if(guest.Id == -1)
-                {
-                    return decimal.Zero;
-                }
+            
                 decimal weekendPrice = 0M;
                 decimal weekdayPrice = 0M;
                 for (var day = StartDate.Date; day <= EndDate.Date; day = day.AddDays(1))
@@ -37,7 +32,7 @@ namespace DontWreckMyHouse.Core.Models
                 }
                 decimal cost = weekdayPrice + weekendPrice;
                 return cost;
-            }
+            
         }
     }
 }

@@ -9,6 +9,7 @@ namespace DontWreckMyHouse.DAL
 {
     public class ReservationRepository : IReservation
     {
+        private const string HEADER = "id,start_date,end_date,guest_id,total";
         private readonly string _dataDirPath;
         public ICustomeFormatter<Reservation> Formatter { get; set; }
 
@@ -20,17 +21,70 @@ namespace DontWreckMyHouse.DAL
 
         public Result<Reservation> Add(Reservation reservation)
         {
-            throw new NotImplementedException();
+            List<Reservation> reservations = FindAllByHostId(reservation.host.Id).Data;
+            if(reservations == null)
+            {
+                File.Create(Path.Combine(_dataDirPath, reservation.host.Id.ToString()));
+            }
+            Result<Reservation> result = new Result<Reservation>();
+            int nextId = (reservations.Count == 0) ? 0 : reservations.Max(i => i.Id);
+            reservation.Id = nextId + 1;
+            reservations.Add(reservation);
+            Write(reservations, reservation.host.Id);
+            result.Data = reservation;
+            return result;
         }
 
-        public Result<Reservation> Delete(int id)
+        private void Write(List<Reservation> reservations, Guid hostId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using StreamWriter sw = new StreamWriter(GetFilePath(hostId));
+                sw.WriteLine(HEADER);
+
+                if(reservations == null)
+                {
+                    return;
+                }
+                foreach(Reservation reservation in reservations)
+                {
+                    sw.WriteLine(Formatter.Serialize(reservation));
+                }
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
-        public Result<Reservation> Edit(Reservation reservation)
+        public bool Delete(Reservation reservation)
         {
-            throw new NotImplementedException();
+            List<Reservation> reservations = FindAllByHostId(reservation.host.Id).Data;
+            for (int i = 0; i < reservations.Count; i++)
+            {
+                if (reservations[i].Id == reservation.Id)
+                {
+                    reservations[i] = reservation;
+                    reservations.Remove(reservations[i]);
+                    Write(reservations, reservation.host.Id);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool Edit(Reservation reservation)
+        {
+            List<Reservation> reservations = FindAllByHostId(reservation.host.Id).Data;
+            for (int i = 0; i < reservations.Count; i++)
+            {
+                if(reservations[i].Id == reservation.Id)
+                {
+                    reservations[i] = reservation;
+                    Write(reservations, reservation.host.Id);
+                    return true;
+                }
+            }return false;
         }
 
         public Result<List<Reservation>> FindAllByHostId(Guid hostId2Find)

@@ -30,7 +30,7 @@ namespace DontWreckMyHouse.DAL
             throw new NotImplementedException();
         }
 
-        public string Seralize(Guest data)
+        public string Serialize(Guest data)
         {
             return $"{data.Id},{data.FirstName},{data.LastName},{data.Email},{data.Phone},{data.State}";
         }
@@ -61,7 +61,7 @@ namespace DontWreckMyHouse.DAL
             throw new NotImplementedException();
         }
 
-        public string Seralize(Host data)
+        public string Serialize(Host data)
         {
             return $"{data.Id},{data.LastName},{data.Email},{data.Phone},{data.Address},{data.City},{data.State},{data.PostalCode},{data.StandardRate},{data.WeekendRate}";
         }
@@ -87,9 +87,9 @@ namespace DontWreckMyHouse.DAL
             return result;
         }
 
-        public string Seralize(Reservation data)
+        public string Serialize(Reservation data)
         {
-            return $"{data.Id},{data.StartDate},{data.EndDate},{data.guest.Id},{data.Value}";
+            return $"{data.Id},{data.StartDate},{data.EndDate},{data.guest.Id},{data.Total}";
         }
     }
 }
